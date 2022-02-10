@@ -3,7 +3,7 @@
 [ext_resource path="res://game/scenes/mainMenu/button/01_buttonMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/scenes/mainMenu/MainMenu.gd" type="Script" id=2]
 [ext_resource path="res://game/scenes/mainMenu/button/fontStyle.tres" type="DynamicFont" id=3]
-[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://game/PNG/menu.png" type="Texture" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.184314, 0, 0.356863, 1 )
@@ -35,25 +35,25 @@ __meta__ = {
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer2"]
 margin_left = 50.0
 margin_top = 50.0
-margin_right = 1230.0
-margin_bottom = 730.0
+margin_right = 1446.0
+margin_bottom = 1340.0
 custom_styles/panel = SubResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/PanelContainer"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 1170.0
-margin_bottom = 670.0
+margin_right = 1386.0
+margin_bottom = 1280.0
 custom_constants/margin_right = 150
 custom_constants/margin_top = 50
 custom_constants/margin_left = 150
 custom_constants/margin_bottom = 100
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer2/PanelContainer/MarginContainer"]
-margin_left = 548.0
-margin_top = 273.0
-margin_right = 612.0
-margin_bottom = 337.0
+margin_left = 150.0
+margin_top = 50.0
+margin_right = 1226.0
+margin_bottom = 1170.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource( 4 )
@@ -62,21 +62,22 @@ stretch_mode = 6
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/PanelContainer/MarginContainer"]
 margin_left = 150.0
 margin_top = 50.0
-margin_right = 1010.0
-margin_bottom = 560.0
+margin_right = 1226.0
+margin_bottom = 1170.0
 alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="NewGame" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource( 1 )]
-margin_top = 314.0
-margin_bottom = 360.0
+margin_top = 924.0
+margin_right = 1076.0
+margin_bottom = 970.0
 
 [node name="LoadGame" type="Button" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer"]
-margin_top = 364.0
-margin_right = 860.0
-margin_bottom = 410.0
+margin_top = 974.0
+margin_right = 1076.0
+margin_bottom = 1020.0
 rect_pivot_offset = Vector2( 20, -76 )
 custom_colors/font_color_hover = Color( 1, 0.941176, 0.298039, 1 )
 custom_colors/font_color_pressed = Color( 1, 0.937255, 0, 1 )
@@ -84,9 +85,9 @@ custom_fonts/font = ExtResource( 3 )
 text = "Load Game"
 
 [node name="Options" type="Button" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer"]
-margin_top = 414.0
-margin_right = 860.0
-margin_bottom = 460.0
+margin_top = 1024.0
+margin_right = 1076.0
+margin_bottom = 1070.0
 rect_pivot_offset = Vector2( 20, -76 )
 custom_colors/font_color_hover = Color( 1, 0.941176, 0.298039, 1 )
 custom_colors/font_color_pressed = Color( 1, 0.937255, 0, 1 )
@@ -97,9 +98,9 @@ __meta__ = {
 }
 
 [node name="Exit" type="Button" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer"]
-margin_top = 464.0
-margin_right = 860.0
-margin_bottom = 510.0
+margin_top = 1074.0
+margin_right = 1076.0
+margin_bottom = 1120.0
 rect_pivot_offset = Vector2( 20, -76 )
 custom_colors/font_color_hover = Color( 1, 0.941176, 0.298039, 1 )
 custom_colors/font_color_pressed = Color( 1, 0.937255, 0, 1 )

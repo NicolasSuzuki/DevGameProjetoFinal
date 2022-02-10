@@ -178,6 +178,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="CapsuleShape2D" id=3]
+height = 100.0
 
 [node name="Player1" type="KinematicBody2D"]
 position = Vector2( 0, -75 )
@@ -196,6 +197,7 @@ anims/idle = SubResource( 2 )
 "anims/kick " = SubResource( 5 )
 
 [node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 7 )
 shape = SubResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
