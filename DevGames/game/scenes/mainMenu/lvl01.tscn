@@ -6,7 +6,7 @@
 [ext_resource path="res://game/PNG/Battleground1/Bright/sky.png" type="Texture" id=4]
 [ext_resource path="res://game/PNG/Black_colour.jpg" type="Texture" id=5]
 [ext_resource path="res://game/scenes/mainMenu/end.tscn" type="PackedScene" id=6]
-[ext_resource path="res://game/scenes/mainMenu/Transition.tscn" type="PackedScene" id=7]
+[ext_resource path="res://game/scenes/mainMenu/Transition_In.tscn" type="PackedScene" id=7]
 [ext_resource path="res://game/enemy/mouse.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=8]
@@ -162,17 +162,22 @@ extents = Vector2( 20, 778 )
 0/z_index = 0
 
 [node name="lvl01" type="Node2D"]
+position = Vector2( -8, -112 )
 
 [node name="Sky" type="TileMap" parent="."]
 position = Vector2( 3840, -1088 )
 rotation = 3.14159
 tile_set = SubResource( 9 )
+collision_layer = 8
+collision_mask = 0
 format = 1
 tile_data = PoolIntArray( -1048636, 0, 0, -1048606, 0, 0, -1114112, 0, 0, -1114082, 0, 0, -1114052, 0, 0 )
 
 [node name="Background" type="TileMap" parent="."]
 position = Vector2( 1, 0 )
 tile_set = SubResource( 6 )
+collision_layer = 8
+collision_mask = 0
 format = 1
 tile_data = PoolIntArray( 65506, 3, 0, 0, 3, 0, 30, 3, 0, 60, 3, 0, 90, 3, 0, 120, 3, 0 )
 
@@ -180,6 +185,7 @@ tile_data = PoolIntArray( 65506, 3, 0, 0, 3, 0, 30, 3, 0, 60, 3, 0, 90, 3, 0, 12
 position = Vector2( 69, 125 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( -2, 302 )
@@ -188,11 +194,15 @@ shape = SubResource( 7 )
 [node name="Floor" type="TileMap" parent="."]
 tile_set = SubResource( 15 )
 cell_size = Vector2( 60, 60 )
+collision_layer = 8
+collision_mask = 7
 format = 1
 tile_data = PoolIntArray( 1245152, 0, 0, 1179648, 0, 0, 1179680, 0, 0, 1179712, 0, 0, 1179744, 0, 0, 1376224, 0, 0, 1310720, 0, 0, 1310752, 0, 0, 1310784, 0, 0, 1310816, 0, 0, 1507296, 0, 0, 1441792, 0, 0, 1441824, 0, 0, 1441856, 0, 0, 1441888, 0, 0 )
 
 [node name="End" type="TileMap" parent="."]
 tile_set = SubResource( 16 )
+collision_layer = 8
+collision_mask = 0
 format = 1
 tile_data = PoolIntArray( -1113992, 0, 0, -1113980, 0, 0, -1113979, 0, 0, 120, 0, 0, 132, 0, 0, 133, 0, 0, 327800, 0, 0, 327812, 0, 0, 327813, 0, 0 )
 
@@ -203,4 +213,25 @@ path = "res://game/scenes/mainMenu/lvl02.tscn"
 [node name="Transition" parent="." instance=ExtResource( 7 )]
 
 [node name="mouse" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1080, 853 )
+position = Vector2( 412, 175 )
+
+[node name="mouse3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2644, 233 )
+
+[node name="mouse4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3814, 313 )
+
+[node name="mouse2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1899, 220 )
+
+[node name="mouse5" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4748, 403 )
+
+[node name="mouse6" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5603, 392 )
+
+[node name="mouse7" parent="." instance=ExtResource( 8 )]
+position = Vector2( 6982, 371 )
+
+[node name="mouse8" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1118, 324 )
