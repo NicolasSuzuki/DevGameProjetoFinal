@@ -1,54 +1,15 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://game/player/idle.png" type="Texture" id=2]
 [ext_resource path="res://game/player/punch.png" type="Texture" id=3]
 [ext_resource path="res://game/player/kick.png" type="Texture" id=4]
-
-[sub_resource type="Animation" id=4]
-resource_name = "Atack"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath("Idle:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 3 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Idle:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 1, 0, 1 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Idle:hframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 2 ]
-}
+[ext_resource path="res://game/player/damage.png" type="Texture" id=5]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Idle:frame_coords")
+tracks/0/path = NodePath("texture:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -60,7 +21,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Idle:frame")
+tracks/1/path = NodePath("texture:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -72,7 +33,7 @@ tracks/1/keys = {
 "values": [ 0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Idle:texture")
+tracks/2/path = NodePath("texture:texture")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -84,7 +45,7 @@ tracks/2/keys = {
 "values": [ ExtResource( 2 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Idle:hframes")
+tracks/3/path = NodePath("texture:hframes")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -96,12 +57,51 @@ tracks/3/keys = {
 "values": [ 2 ]
 }
 
+[sub_resource type="Animation" id=6]
+resource_name = "damage"
+tracks/0/type = "value"
+tracks/0/path = NodePath("texture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("texture:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
 [sub_resource type="Animation" id=2]
 resource_name = "idle"
 length = 1.4
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Idle:frame")
+tracks/0/path = NodePath("texture:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -113,7 +113,7 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Idle:texture")
+tracks/1/path = NodePath("texture:texture")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -125,7 +125,7 @@ tracks/1/keys = {
 "values": [ ExtResource( 2 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Idle:hframes")
+tracks/2/path = NodePath("texture:hframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -138,10 +138,10 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id=5]
-resource_name = "kick "
+resource_name = "kickAtk"
 length = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("Idle:texture")
+tracks/0/path = NodePath("texture:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -153,7 +153,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 4 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Idle:hframes")
+tracks/1/path = NodePath("texture:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -165,7 +165,7 @@ tracks/1/keys = {
 "values": [ 2 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Idle:frame")
+tracks/2/path = NodePath("texture:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -177,26 +177,80 @@ tracks/2/keys = {
 "values": [ 1, 0, 1 ]
 }
 
+[sub_resource type="Animation" id=4]
+resource_name = "punch"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("texture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("texture:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 0, 1 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("texture:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 32, 48.5 )
+
 [sub_resource type="CapsuleShape2D" id=3]
-height = 100.0
+height = 110.0
 
 [node name="Player1" type="KinematicBody2D"]
 position = Vector2( 0, -75 )
+collision_mask = 46
 script = ExtResource( 1 )
 
-[node name="Idle" type="Sprite" parent="."]
+[node name="texture" type="Sprite" parent="."]
 scale = Vector2( 2.4, 2.4 )
 texture = ExtResource( 2 )
 hframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="anim" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/Atack = SubResource( 4 )
 anims/RESET = SubResource( 1 )
+anims/damage = SubResource( 6 )
 anims/idle = SubResource( 2 )
-"anims/kick " = SubResource( 5 )
+anims/kickAtk = SubResource( 5 )
+anims/punch = SubResource( 4 )
+
+[node name="hurtbox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="collision" type="CollisionShape2D" parent="hurtbox"]
+position = Vector2( 1, 5.5 )
+shape = SubResource( 7 )
 
 [node name="collision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, 7 )
 shape = SubResource( 3 )
 
@@ -206,3 +260,29 @@ limit_left = -1000
 limit_smoothed = true
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
+
+[node name="raycasts" type="Node2D" parent="."]
+
+[node name="raycast" type="RayCast2D" parent="raycasts"]
+position = Vector2( -12, 1 )
+scale = Vector2( 1.72, 1.52 )
+enabled = true
+cast_to = Vector2( 0, 70 )
+collision_mask = 8
+
+[node name="raycast2" type="RayCast2D" parent="raycasts"]
+position = Vector2( 20, 2.00001 )
+scale = Vector2( 1.9584, 1.5104 )
+enabled = true
+cast_to = Vector2( 0, 70 )
+collision_mask = 8
+
+[node name="raycastsAttack" type="Node2D" parent="."]
+
+[node name="raycast" type="RayCast2D" parent="raycastsAttack"]
+scale = Vector2( 1.08, 3.90603 )
+enabled = true
+cast_to = Vector2( -50, 0 )
+collision_mask = 2
+
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
